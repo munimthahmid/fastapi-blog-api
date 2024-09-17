@@ -1,8 +1,8 @@
-from fastapi import FastAPI, Depends, status,HTTPException
-from . import models
-from .database import engine
+from fastapi import FastAPI
+from app.blog import models
+from app.blog.database import engine
 models.Base.metadata.create_all(bind=engine)
-from .routers import blog, users,authentication
+from app.blog.routers import blog, users,authentication
 app=FastAPI()
 
 models.Base.metadata.create_all(engine)
